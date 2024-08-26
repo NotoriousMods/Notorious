@@ -17,11 +17,11 @@ from telebot import types
 
 loop = asyncio.get_event_loop()
 
-TOKEN = '7147325725:AAGjKXYr5PtuOgRuNQz-mJPRxJ1wqq2kpLI'
+TOKEN = '7504537450:AAEMFfPxyjQupTw6Paik6ml7de5Cg4FQZYY'
 MONGO_URI = 'mongodb+srv://Cluster0:Cluster0@cluster0.5mvg9ej.mongodb.net/danger?retryWrites=true&w=majority'
-FORWARD_CHANNEL_ID = -1002157406787
-CHANNEL_ID = -1002157406787
-error_channel_id = -1002157406787
+FORWARD_CHANNEL_ID = -1002155656757
+CHANNEL_ID = -1002155656757
+error_channel_id = -1002155656757
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
@@ -148,7 +148,7 @@ def approve_or_disapprove_user(message):
         msg_text = (f"🎉 𝗖𝗼𝗻𝗴𝗿𝗮𝘁𝘂𝗹𝗮𝘁𝗶𝗼𝗻𝘀!\n"
                     f"𝗨𝘀𝗲𝗿 {target_user_id} 𝗵𝗮𝘀 𝗯𝗲𝗲𝗻 𝗮𝗽𝗽𝗿𝗼𝘃𝗲𝗱!\n"
                     f"𝗣𝗹𝗮𝗻: {plan} 𝗳𝗼𝗿 {days} 𝗱𝗮𝘆𝘀!\n"
-                    f"𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 𝗼𝘂𝗿 𝗰𝗼𝗺𝗺𝘂𝗻𝗶𝘁𝘆! 𝗦𝗲𝗻𝗱 𝗙𝗲𝗲𝗱𝗯𝗮𝗰𝗸 𝗔𝗻𝗱 𝗘𝗻𝗷𝗼𝘆! ✨")
+                    f"𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 𝗼𝘂𝗿 𝗰𝗼𝗺𝗺𝘂𝗻𝗶𝘁𝘆! 𝗟𝗲𝘁’𝘀 𝗺𝗮𝗸𝗲 𝘀𝗼𝗺𝗲 𝗺𝗮𝗴𝗶𝗰 𝗵𝗮𝗽𝗽𝗲𝗻! ✨")
     else:  # disapprove
         users_collection.update_one(
             {"user_id": target_user_id},
@@ -174,10 +174,10 @@ def handle_attack_command(message):
         if not user_data or user_data['plan'] == 0:
             response = ("𝗔𝗰𝗰𝗲𝘀𝘀 𝗗𝗲𝗻𝗶𝗲𝗱! 🚫\n"
                         "𝗬𝗼𝘂 𝗻𝗲𝗲𝗱 𝘁𝗼 𝗯𝗲 𝗮𝗽𝗽𝗿𝗼𝘃𝗲𝗱 𝘁𝗼 𝘂𝘀𝗲 𝘁𝗵𝗶𝘀 𝗯𝗼𝘁.\n"
-                        "𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝘁𝗵𝗲 𝗼𝘄𝗻𝗲𝗿 𝗳𝗼𝗿 𝗮𝘀𝘀𝗶𝘀𝘁𝗮𝗻𝗰𝗲: [@DDOSMOD_OWNER].")
+                        "𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝘁𝗵𝗲 𝗼𝘄𝗻𝗲𝗿 𝗳𝗼𝗿 𝗮𝘀𝘀𝗶𝘀𝘁𝗮𝗻𝗰𝗲: [].")
             markup = types.InlineKeyboardMarkup()
-            button1 = types.InlineKeyboardButton(text="♻️ 𝗔𝗣𝗣𝗥𝗢𝗩𝗘 𝗔𝗖𝗖𝗢𝗨𝗡𝗧 𝗡𝗢𝗪 ♻️", url="https://t.me/DDOSMOD_OWNER")
-            button2 = types.InlineKeyboardButton(text="💸 𝗖𝗟𝗜𝗖𝗞 𝗣𝗥𝗜𝗖𝗘 𝗟𝗜𝗦𝗧 𝗛𝗘𝗥𝗘 💸", url="https://t.me/c/1814627852/5649")
+            button1 = types.InlineKeyboardButton(text="♻️ 𝗔𝗣𝗣𝗥𝗢𝗩𝗘 𝗔𝗖𝗖𝗢𝗨𝗡𝗧 𝗡𝗢𝗪 ♻️", url="")
+            button2 = types.InlineKeyboardButton(text="💸 𝗖𝗟𝗜𝗖𝗞 𝗣𝗥𝗜𝗖𝗘 𝗟𝗜𝗦𝗧 𝗛𝗘𝗥𝗘 💸", url="")
             markup.add(button1)
             markup.add(button2)
             bot.send_message(chat_id, response, parse_mode='Markdown', reply_markup=markup)
@@ -196,8 +196,8 @@ def handle_attack_command(message):
 
         response = ("𝗥𝗲𝗮𝗱𝘆 𝘁𝗼 𝗹𝗮𝘂𝗻𝗰𝗵 𝗮𝗻 𝗮𝘁𝘁𝗮𝗰𝗸? 💣\n"
                     "𝗣𝗹𝗲𝗮𝘀𝗲 𝗽𝗿𝗼𝘃𝗶𝗱𝗲 𝘁𝗵𝗲 𝘁𝗮𝗿𝗴𝗲𝘁 𝗜𝗽, 𝗽𝗼𝗿𝘁, 𝗮𝗻𝗱 𝗱𝘂𝗿𝗮𝘁𝗶𝗼𝗻 𝗶𝗻 𝘀𝗲𝗰𝗼𝗻𝗱𝘀.\n"
-                    "𝗘𝘅𝗮𝗺𝗽𝗹𝗲: 167.67.25 6296 60 🔥\n"
-                    "𝗚𝗔𝗡𝗗 𝗠𝗔𝗥𝗢 𝗦𝗘𝗥𝗩𝗘𝗥 𝗞𝗜! 🎉")
+                    "𝗘𝘅𝗮𝗺𝗽𝗹𝗲: 197.67.26 8936 120 🔥\n"
+                    "𝗟𝗲𝘁 𝘁𝗵𝗲 𝗰𝗵𝗮𝗼𝘀 𝗯𝗲𝗴𝗶𝗻! 🎉")
         bot.send_message(chat_id, response, parse_mode='Markdown')
         bot.register_next_step_handler(message, process_attack_command)
 
@@ -229,7 +229,7 @@ def process_attack_command(message):
         bot.send_message(message.chat.id, f"𝗔𝘁𝘁𝗮𝗰𝗸 𝗟𝗮𝘂𝗻𝗰𝗵𝗲𝗱! 🚀\n\n"
                                            f"𝗧𝗮𝗿𝗴𝗲𝘁 𝗛𝗼𝘀𝘁: {target_ip} 📡\n"
                                            f"𝗧𝗮𝗿𝗴𝗲𝘁 𝗣𝗼𝗿𝘁: {target_port} 👉\n"
-                                           f"𝗗𝘂𝗿𝗮𝘁𝗶𝗼𝗻: {duration} 𝘀𝗲𝗰𝗼𝗻𝗱𝘀!𝗘𝗡𝗘𝗠𝗬 𝗞𝗜 𝗚𝗔𝗡𝗗 𝗠𝗔𝗥 𝗟𝗜 𝗔𝗣𝗣𝗡𝗘 ! 🔥", parse_mode='Markdown')
+                                           f"𝗗𝘂𝗿𝗮𝘁𝗶𝗼𝗻: {duration} 𝘀𝗲𝗰𝗼𝗻𝗱𝘀! 𝗟𝗲𝘁 𝘁𝗵𝗲 𝗰𝗵𝗮𝗼𝘀 𝘂𝗻𝗳𝗼𝗹𝗱! 🔥", parse_mode='Markdown')
 
     except Exception as e:
         logging.error(f"Error in processing attack command: {e}")
@@ -248,10 +248,10 @@ def myinfo_command(message):
 
                     if not user_data:
                         response = "❌ 𝗢𝗼𝗽𝘀! 𝗡𝗼 𝗮𝗰𝗰𝗼𝘂𝗻𝘁 𝗶𝗻𝗳𝗼𝗿𝗺𝗮𝘁𝗶𝗼𝗻 𝗳𝗼𝘂𝗻𝗱! \n" 
-                        response += "🛠️ 𝗙𝗼𝗿 𝗮𝘀𝘀𝗶𝘀𝘁𝗮𝗻𝗰𝗲, 𝗽𝗹𝗲𝗮𝘀𝗲 𝗰𝗼𝗻𝘁𝗮𝗰𝘁 𝘁𝗵𝗲 𝗼𝘄𝗻𝗲𝗿 : [@DDOSMOD_OWNER]"
+                        response += "🛠️ 𝗙𝗼𝗿 𝗮𝘀𝘀𝗶𝘀𝘁𝗮𝗻𝗰𝗲, 𝗽𝗹𝗲𝗮𝘀𝗲 𝗰𝗼𝗻𝘁𝗮𝗰𝘁 𝘁𝗵𝗲 𝗼𝘄𝗻𝗲𝗿 : []"
                         markup = types.InlineKeyboardMarkup()
-                        button1 = types.InlineKeyboardButton(text="🥵 𝗖𝗢𝗡𝗧𝗔𝗖𝗧 𝗛𝗘𝗥𝗘 🥵", url="https://t.me/DDOSMOD_OWNER")
-                        button2 = types.InlineKeyboardButton(text="💸 𝗖𝗟𝗜𝗖𝗞 𝗣𝗥𝗜𝗖𝗘 𝗟𝗜𝗦𝗧 𝗛𝗘𝗥𝗘 💸", url="https://t.me/c/1814627852/5649")
+                        button1 = types.InlineKeyboardButton(text="🥵 𝗖𝗢𝗡𝗧𝗔𝗖𝗧 𝗛𝗘𝗥𝗘 🥵", url="")
+                        button2 = types.InlineKeyboardButton(text="💸 𝗖𝗟𝗜𝗖𝗞 𝗣𝗥𝗜𝗖𝗘 𝗟𝗜𝗦𝗧 𝗛𝗘𝗥𝗘 💸", url="")
                         markup.add(button1)
                         markup.add(button2)
 
@@ -259,12 +259,12 @@ def myinfo_command(message):
 
                     elif user_data.get('plan', 0) == 0:
                         response = "🔒 𝗬𝗼𝘂𝗿 𝗮𝗰𝗰𝗼𝘂𝗻𝘁 𝗶𝘀 𝘀𝘁𝗶𝗹𝗹 𝗽𝗲𝗻𝗱𝗶𝗻𝗴 𝗮𝗽𝗽𝗿𝗼𝘃𝗮𝗹! \n" 
-                        response += "🛠️ 𝗣𝗹𝗲𝗮𝘀𝗲 𝗿𝗲𝗮𝗰𝗵 𝗼𝘂𝘁 𝘁𝗼 𝘁𝗵𝗲 𝗼𝘄𝗻𝗲𝗿 𝗳𝗼𝗿 𝗮𝘀𝘀𝗶𝘀𝘁𝗮𝗻𝗰𝗲 : [@DDOSMOD_OWNER] 🙏"
+                        response += "🛠️ 𝗣𝗹𝗲𝗮𝘀𝗲 𝗿𝗲𝗮𝗰𝗵 𝗼𝘂𝘁 𝘁𝗼 𝘁𝗵𝗲 𝗼𝘄𝗻𝗲𝗿 𝗳𝗼𝗿 𝗮𝘀𝘀𝗶𝘀𝘁𝗮𝗻𝗰𝗲 : [] 🙏"
 
                         # Inline keyboard for unapproved users
                         markup = types.InlineKeyboardMarkup()
-                        button1 = types.InlineKeyboardButton(text="🥵 𝗖𝗢𝗡𝗧𝗔𝗖𝗧 𝗛𝗘𝗥𝗘 🥵", url="https://t.me/DDOSMOD_OWNER")
-                        button2 = types.InlineKeyboardButton(text="💸 𝗖𝗟𝗜𝗖𝗞 𝗣𝗥𝗜𝗖𝗘 𝗟𝗜𝗦𝗧 𝗛𝗘𝗥𝗘 💸", url="https://t.me/c/1814627852/5649")
+                        button1 = types.InlineKeyboardButton(text="🥵 𝗖𝗢𝗡𝗧𝗔𝗖𝗧 𝗛𝗘𝗥𝗘 🥵", url="")
+                        button2 = types.InlineKeyboardButton(text="💸 𝗖𝗟𝗜𝗖𝗞 𝗣𝗥𝗜𝗖𝗘 𝗟𝗜𝗦𝗧 𝗛𝗘𝗥𝗘 💸", url="")
                         markup.add(button1)
                         markup.add(button2)
 
@@ -283,7 +283,7 @@ def myinfo_command(message):
 
                         # Inline keyboard for approved users
                         markup = types.InlineKeyboardMarkup()
-                        button = types.InlineKeyboardButton(text="❤‍🩹 𝗝𝗢𝗜𝗡 𝗢𝗨𝗥 𝗖𝗛𝗔𝗡𝗡𝗘𝗟 𝗖𝗟𝗜𝗖𝗞 ❤‍🩹", url="https://t.me/+fGS5rveRJqJhYzM1")
+                        button = types.InlineKeyboardButton(text="❤‍🩹 𝗝𝗢𝗜𝗡 𝗢𝗨𝗥 𝗖𝗛𝗔𝗡𝗡𝗘𝗟 𝗖𝗟𝗜𝗖𝗞 ❤‍🩹", url="")
                         markup.add(button)
 
                         bot.send_message(message.chat.id, response, parse_mode='Markdown', reply_markup=markup)
@@ -303,13 +303,13 @@ def rules_command(message):
         "3. 🎮 𝗣𝗹𝗮𝘆 𝘀𝗺𝗮𝗿𝘁! \n𝗔𝘃𝗼𝗶𝗱 𝗿𝗲𝗽𝗼𝗿𝘁𝘀 𝗮𝗻𝗱 𝘀𝘁𝗮𝘆 𝗹𝗼𝘄-𝗸𝗲𝘆.\n\n"
         "4. 🚫 𝗡𝗼 𝗺𝗼𝗱𝘀 𝗮𝗹𝗹𝗼𝘄𝗲𝗱! \n𝗨𝘀𝗶𝗻𝗴 𝗵𝗮𝗰𝗸𝗲𝗱 𝗳𝗶𝗹𝗲𝘀 𝘄𝗶𝗹𝗹 𝗴𝗲𝘁 𝘆𝗼𝘂 𝗯𝗮𝗻𝗻𝗲𝗱.\n\n"
         "5. 🤝 𝗕𝗲 𝗿𝗲𝘀𝗽𝗲𝗰𝘁𝗳𝘂𝗹! \n𝗞𝗲𝗲𝗽 𝗰𝗼𝗺𝗺𝘂𝗻𝗶𝗰𝗮𝘁𝗶𝗼𝗻 𝗳𝗿𝗶𝗲𝗻𝗱𝗹𝘆 𝗮𝗻𝗱 𝗳𝘂𝗻.\n\n"
-        "6. 🛡️ 𝗥𝗲𝗽𝗼𝗿𝘁 𝗶𝘀𝘀𝘂𝗲𝘀! \n𝗠𝗲𝘀𝘀𝗮𝗴𝗲 𝗧𝗼 [@DDOSMOD_OWNER] 𝗳𝗼𝗿 𝗮𝗻𝘆 𝗽𝗿𝗼𝗯𝗹𝗲𝗺𝘀.\n\n"
+        "6. 🛡️ 𝗥𝗲𝗽𝗼𝗿𝘁 𝗶𝘀𝘀𝘂𝗲𝘀! \n𝗠𝗲𝘀𝘀𝗮𝗴𝗲 𝗧𝗼 [] 𝗳𝗼𝗿 𝗮𝗻𝘆 𝗽𝗿𝗼𝗯𝗹𝗲𝗺𝘀.\n\n"
         "💡 𝗙𝗼𝗹𝗹𝗼𝘄 𝘁𝗵𝗲 𝗿𝘂𝗹𝗲𝘀 𝗮𝗻𝗱 𝗹𝗲𝘁’𝘀 𝗲𝗻𝗷𝗼𝘆 𝗴𝗮𝗺𝗶𝗻𝗴 𝘁𝗼𝗴𝗲𝘁𝗵𝗲𝗿!"
     )
 
     # Create an inline keyboard with a vertical button
     markup = types.InlineKeyboardMarkup()
-    button = types.InlineKeyboardButton(text="💝 𝗖𝗢𝗡𝗧𝗔𝗖𝗧 𝗢𝗪𝗡𝗘𝗥 𝗙𝗢𝗥 𝗤𝗨𝗘𝗥𝗜𝗘𝗦 💝", url="https://t.me/DDOSMOD_OWNER")
+    button = types.InlineKeyboardButton(text="💝 𝗖𝗢𝗡𝗧𝗔𝗖𝗧 𝗢𝗪𝗡𝗘𝗥 𝗙𝗢𝗥 𝗤𝗨𝗘𝗥𝗜𝗘𝗦 💝", url="")
     markup.add(button)
 
     try:
@@ -322,17 +322,17 @@ def rules_command(message):
 def help_command(message):
     help_text = ("🌟 𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 𝘁𝗵𝗲 𝗨𝗹𝘁𝗶𝗺𝗮𝘁𝗲 𝗖𝗼𝗺𝗺𝗮𝗻𝗱 𝗖𝗲𝗻𝘁𝗲𝗿!\n\n"
                  "𝗛𝗲𝗿𝗲’𝘀 𝘄𝗵𝗮𝘁 𝘆𝗼𝘂 𝗰𝗮𝗻 𝗱𝗼: \n"
-                 "1. *⚔️ 𝗟𝗮𝘂𝗻𝗰𝗵 𝗮 𝗽𝗼𝘄𝗲𝗿𝗳𝘂𝗹 𝗮𝘁𝘁𝗮𝗰𝗸 𝗮𝗻𝗱 𝘀𝗵𝗼𝘄 𝘆𝗼𝘂𝗿 𝘀𝗸𝗶𝗹𝗹𝘀! `/attack`\*n"
-                 "2. *👤 𝗖𝗵𝗲𝗰𝗸 𝘆𝗼𝘂𝗿 𝗮𝗰𝗰𝗼𝘂𝗻𝘁 𝗶𝗻𝗳𝗼 𝗮𝗻𝗱 𝘀𝘁𝗮𝘆 𝘂𝗽𝗱𝗮𝘁𝗲𝗱. `/myinfo`*\n"
-                 "3. *📞 𝗚𝗲𝘁 𝗶𝗻 𝘁𝗼𝘂𝗰𝗵 𝘄𝗶𝘁𝗵 𝘁𝗵𝗲 𝗺𝗮𝘀𝘁𝗲𝗿𝗺𝗶𝗻𝗱 𝗯𝗲𝗵𝗶𝗻𝗱 𝘁𝗵𝗶𝘀 𝗯𝗼𝘁! `/owner`*\n"
-                 "4. *🦅 𝗚𝗿𝗮𝗯 𝘁𝗵𝗲 𝗹𝗮𝘁𝗲𝘀𝘁 𝗖𝗮𝗻𝗮𝗿𝘆 𝘃𝗲𝗿𝘀𝗶𝗼𝗻 𝗳𝗼𝗿 𝗰𝘂𝘁𝘁𝗶𝗻𝗴-𝗲𝗱𝗴𝗲 𝗳𝗲𝗮𝘁𝘂𝗿𝗲𝘀. `/canary`*\n"
-                 "5. *📜 𝗥𝗲𝘃𝗶𝗲𝘄 𝘁𝗵𝗲 𝗿𝘂𝗹𝗲𝘀 𝘁𝗼 𝗸𝗲𝗲𝗽 𝘁𝗵𝗲 𝗴𝗮𝗺𝗲 𝗳𝗮𝗶𝗿 𝗮𝗻𝗱 𝗳𝘂𝗻. `/rules`*\n\n"
+                 "*1. ⚔️ 𝗟𝗮𝘂𝗻𝗰𝗵 𝗮 𝗽𝗼𝘄𝗲𝗿𝗳𝘂𝗹 𝗮𝘁𝘁𝗮𝗰𝗸 𝗮𝗻𝗱 𝘀𝗵𝗼𝘄 𝘆𝗼𝘂𝗿 𝘀𝗸𝗶𝗹𝗹𝘀! `/attack`*\n"
+                 "*2. 👤 𝗖𝗵𝗲𝗰𝗸 𝘆𝗼𝘂𝗿 𝗮𝗰𝗰𝗼𝘂𝗻𝘁 𝗶𝗻𝗳𝗼 𝗮𝗻𝗱 𝘀𝘁𝗮𝘆 𝘂𝗽𝗱𝗮𝘁𝗲𝗱. `/myinfo`*\n"
+                 "*3. 📞 𝗚𝗲𝘁 𝗶𝗻 𝘁𝗼𝘂𝗰𝗵 𝘄𝗶𝘁𝗵 𝘁𝗵𝗲 𝗺𝗮𝘀𝘁𝗲𝗿𝗺𝗶𝗻𝗱 𝗯𝗲𝗵𝗶𝗻𝗱 𝘁𝗵𝗶𝘀 𝗯𝗼𝘁! `/owner`*\n"
+                 "*4. 🦅 𝗚𝗿𝗮𝗯 𝘁𝗵𝗲 𝗹𝗮𝘁𝗲𝘀𝘁 𝗖𝗮𝗻𝗮𝗿𝘆 𝘃𝗲𝗿𝘀𝗶𝗼𝗻 𝗳𝗼𝗿 𝗰𝘂𝘁𝘁𝗶𝗻𝗴-𝗲𝗱𝗴𝗲 𝗳𝗲𝗮𝘁𝘂𝗿𝗲𝘀. `/canary`*\n"
+                 "*5. 📜 𝗥𝗲𝘃𝗶𝗲𝘄 𝘁𝗵𝗲 𝗿𝘂𝗹𝗲𝘀 𝘁𝗼 𝗸𝗲𝗲𝗽 𝘁𝗵𝗲 𝗴𝗮𝗺𝗲 𝗳𝗮𝗶𝗿 𝗮𝗻𝗱 𝗳𝘂𝗻. `/rules`*\n\n"
                  "💡 𝗚𝗼𝘁 𝗾𝘂𝗲𝘀𝘁𝗶𝗼𝗻𝘀? 𝗗𝗼𝗻'𝘁 𝗵𝗲𝘀𝗶𝘁𝗮𝘁𝗲 𝘁𝗼 𝗮𝘀𝗸! 𝗬𝗼𝘂𝗿 𝘀𝗮𝘁𝗶𝘀𝗳𝗮𝗰𝘁𝗶𝗼𝗻 𝗶𝘀 𝗼𝘂𝗿 𝗽𝗿𝗶𝗼𝗿𝗶𝘁𝘆!")
 
     # Create an inline keyboard with buttons arranged vertically
     markup = types.InlineKeyboardMarkup()
-    button1 = types.InlineKeyboardButton(text="🔱 𝗖𝗢𝗡𝗧𝗔𝗖𝗧 𝗢𝗪𝗡𝗘𝗥 🔱", url="https://t.me/DDOSMOD_OWNER")
-    button2 = types.InlineKeyboardButton(text="💸 𝗖𝗟𝗜𝗖𝗞 𝗣𝗥𝗜𝗖𝗘 𝗟𝗜𝗦𝗧 𝗛𝗘𝗥𝗘 💸", url="https://t.me/c/1814627852/5649")
+    button1 = types.InlineKeyboardButton(text="🔱 𝗖𝗢𝗡𝗧𝗔𝗖𝗧 𝗢𝗪𝗡𝗘𝗥 🔱", url="")
+    button2 = types.InlineKeyboardButton(text="💸 𝗖𝗟𝗜𝗖𝗞 𝗣𝗥𝗜𝗖𝗘 𝗟𝗜𝗦𝗧 𝗛𝗘𝗥𝗘 💸", url="")
 
     markup.add(button1)
     markup.add(button2)
@@ -349,14 +349,14 @@ def help_command(message):
 def owner_command(message):
     # Create an inline keyboard with a button
     markup = types.InlineKeyboardMarkup()
-    button = types.InlineKeyboardButton(text="💪 𝗖𝗢𝗡𝗧𝗔𝗖𝗧 𝗢𝗪𝗡𝗘𝗥 𝗡𝗢𝗪 💪", url="https://t.me/DDOSMOD_OWNER")
+    button = types.InlineKeyboardButton(text="💪 𝗖𝗢𝗡𝗧𝗔𝗖𝗧 𝗢𝗪𝗡𝗘𝗥 𝗡𝗢𝗪 💪", url="")
     markup.add(button)
 
     # Define the message content
     response = (
         "👤 𝗢𝘄𝗻𝗲𝗿 𝗜𝗻𝗳𝗼𝗿𝗺𝗮𝘁𝗶𝗼𝗻:\n\n"
         "𝗙𝗼𝗿 𝗮𝗻𝘆 𝗶𝗻𝗾𝘂𝗶𝗿𝗶𝗲𝘀, 𝘀𝘂𝗽𝗽𝗼𝗿𝘁, 𝗼𝗿 𝗰𝗼𝗹𝗹𝗮𝗯𝗼𝗿𝗮𝘁𝗶𝗼𝗻 𝗼𝗽𝗽𝗼𝗿𝘁𝘂𝗻𝗶𝘁𝗶𝗲𝘀, 𝗱𝗼𝗻'𝘁 𝗵𝗲𝘀𝗶𝘁𝗮𝘁𝗲 𝘁𝗼 𝗿𝗲𝗮𝗰𝗵 𝗼𝘂𝘁 𝘁𝗼 𝘁𝗵𝗲 𝗼𝘄𝗻𝗲𝗿:\n\n"
-        "📩 𝗧𝗲𝗹𝗲𝗴𝗿𝗮𝗺 : [@DDOSMOD_OWNER]\n\n"
+        "📩 𝗧𝗲𝗹𝗲𝗴𝗿𝗮𝗺 : []\n\n"
         "💬 𝗪𝗲 𝘃𝗮𝗹𝘂𝗲 𝘆𝗼𝘂𝗿 𝗳𝗲𝗲𝗱𝗯𝗮𝗰𝗸! 𝗬𝗼𝘂𝗿 𝘁𝗵𝗼𝘂𝗴𝗵𝘁𝘀 𝗮𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀 𝗮𝗿𝗲 𝗰𝗿𝘂𝗰𝗶𝗮𝗹 𝗳𝗼𝗿 𝗶𝗺𝗽𝗿𝗼𝘃𝗶𝗻𝗴 𝗼𝘂𝗿 𝘀𝗲𝗿𝘃𝗶𝗰𝗲 𝗮𝗻𝗱 𝗲𝗻𝗵𝗮𝗻𝗰𝗶𝗻𝗴 𝘆𝗼𝘂𝗿 𝗲𝘅𝗽𝗲𝗿𝗶𝗲𝗻𝗰𝗲.\n\n"
         "🌟 𝗧𝗵𝗮𝗻𝗸 𝘆𝗼𝘂 𝗳𝗼𝗿 𝗯𝗲𝗶𝗻𝗴 𝗮 𝗽𝗮𝗿𝘁 𝗼𝗳 𝗼𝘂𝗿 𝗰𝗼𝗺𝗺𝘂𝗻𝗶𝘁𝘆! 𝗬𝗼𝘂𝗿 𝘀𝘂𝗽𝗽𝗼𝗿𝘁 𝗺𝗲𝗮𝗻𝘀 𝘁𝗵𝗲 𝘄𝗼𝗿𝗹𝗱 𝘁𝗼 𝘂𝘀, 𝗮𝗻𝗱 𝘄𝗲’𝗿𝗲 𝗮𝗹𝘄𝗮𝘆𝘀 𝗵𝗲𝗿𝗲 𝘁𝗼 𝗵𝗲𝗹𝗽!"
     )
@@ -375,9 +375,9 @@ from telebot import types
 def start_message(message):
     # Create an inline keyboard with buttons arranged vertically
     markup = types.InlineKeyboardMarkup()
-    button1 = types.InlineKeyboardButton(text="🔱 𝗖𝗢𝗡𝗧𝗔𝗖𝗧 𝗢𝗪𝗡𝗘𝗥 𝗧𝗢 𝗕𝗨𝗬 🔱", url="https://t.me/DDOSMOD_OWNER")
-    button2 = types.InlineKeyboardButton(text="💸 𝗖𝗟𝗜𝗖𝗞 𝗣𝗥𝗜𝗖𝗘 𝗟𝗜𝗦𝗧 𝗛𝗘𝗥𝗘 💸", url="https://t.me/c/1814627852/5649")
-    button3 = types.InlineKeyboardButton(text="❤‍🩹 𝗝𝗢𝗜𝗡 𝗢𝗨𝗥 𝗖𝗛𝗔𝗡𝗡𝗘𝗟 𝗖𝗟𝗜𝗖𝗞 ❤‍🩹", url="https://t.me/+fGS5rveRJqJhYzM1")
+    button1 = types.InlineKeyboardButton(text="🔱 𝗖𝗢𝗡𝗧𝗔𝗖𝗧 𝗢𝗪𝗡𝗘𝗥 𝗧𝗢 𝗕𝗨𝗬 🔱", url="")
+    button2 = types.InlineKeyboardButton(text="💸 𝗖𝗟𝗜𝗖𝗞 𝗣𝗥𝗜𝗖𝗘 𝗟𝗜𝗦𝗧 𝗛𝗘𝗥𝗘 💸", url="")
+    button3 = types.InlineKeyboardButton(text="❤‍🩹 𝗝𝗢𝗜𝗡 𝗢𝗨𝗥 𝗖𝗛𝗔𝗡𝗡𝗘𝗟 𝗖𝗟𝗜𝗖𝗞 ❤‍🩹", url="")
 
     # Add buttons to the markup
     markup.add(button1)
@@ -410,7 +410,7 @@ def canary_command(message):
     
     # Inline keyboard with a button
     markup = types.InlineKeyboardMarkup()
-    button = types.InlineKeyboardButton(text="🎁 𝗖𝗔𝗡𝗔𝗥𝗬 𝗔𝗣𝗞 𝗖𝗟𝗜𝗖𝗞 🎁", url="https://t.me/DDOSMODFEEDBACKS/334")
+    button = types.InlineKeyboardButton(text="🎁 𝗖𝗔𝗡𝗔𝗥𝗬 𝗔𝗣𝗞 𝗖𝗟𝗜𝗖𝗞 🎁", url="")
     button2 = types.InlineKeyboardButton(text="📱 𝗖𝗔𝗡𝗔𝗥𝗬 𝗙𝗢𝗥 𝗜𝗢𝗦 📱", url="https://apps.apple.com/in/app/surge-5/id1442620678")
     markup.add(button)
     markup.add(button2)
